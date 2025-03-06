@@ -27,9 +27,7 @@ public class Main {
                         v -> v.split(";")[1] //Define o valor do mapa
                 ));
         // Exibe o mapa resultante
-        positions.forEach((key, value) -> {
-            System.out.println("Chave: " + key + ", Valor: " + value);
-        });
+        positions.forEach((key, value) -> System.out.println("Chave: " + key + ", Valor: " + value));
 
         var option =-1;
         while(true){
@@ -66,7 +64,7 @@ public class Main {
         for(int i = 0; i < BOARD_LIMIT; i++){
             spaces.add((new ArrayList<>()));
             for (int j = 0; j < BOARD_LIMIT; j++){
-                var positionConfig = positions.get("%s,%s".formatted(i,j));
+                var positionConfig = positions.get("%s, %s".formatted(i,j));
                 var expected = Integer.parseInt(positionConfig.split(",")[0]);
                 var fixed = Boolean.parseBoolean(positionConfig.split(",")[1]);
                 var currentSpace = new Space(expected, fixed);
